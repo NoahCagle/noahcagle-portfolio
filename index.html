@@ -200,13 +200,24 @@
 			margin: 0;
 		}
 
-		.project-bio p {
+		.project-bio p,
+		.project-bio a {
+			color: white;
 			display: block;
 			margin: 1rem auto;
 			padding: 0rem 1rem;
 			font-size: 1.5rem;
 			font-weight: 400;
 			text-align: center;
+		}
+
+		.project-bio a {
+			text-decoration: underline;
+			transition: opacity 0.2s ease-out;
+		}
+
+		.project-bio a:hover {
+			opacity: 0.6;
 		}
 
 		.project-media {
@@ -259,7 +270,8 @@
 			}
 
 			.header-bio p,
-			.project-bio p {
+			.project-bio p,
+			.project-bio a {
 				font-size: 1.5rem;
 				padding: 0;
 			}
@@ -420,6 +432,9 @@
 				reverse-proxy is placed in front of this instance to ensure
 				SSL is enforced.
 			</p>
+			<a href="https://www.aliensofcp.com" target="_blank" rel="noopener noreferrer" aria-label="Aliens of Club Penguin">
+				Check out this website for yourself!
+			</a>
 		</div>
 	</div>
 </body>
