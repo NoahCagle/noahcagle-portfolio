@@ -1,0 +1,427 @@
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/png" href="assets/favicon.png" />
+	<link rel="icon" href="assets/favicon.ico" />
+	<meta name="viewport" content="width=device-width" />
+	<meta property="og:title" content="Noah Cagle - Full Stack Developer" />
+	<meta property="og:image" content="assets/profile.webp" />
+	<meta property="og:description"
+		content="Noah Cagle is a full stack developer in Nashville, Tennessee. Currently, he is pursing a bachelor's degree in professional computer science at Middle Tennessee State University." />
+	<title>Noah Cagle - Full Stack Developer</title>
+	<style>
+		html {
+			background: #010101;
+			color: white;
+			font-family:
+				system-ui,
+				-apple-system,
+				BlinkMacSystemFont,
+				"Segoe UI",
+				Roboto,
+				Oxygen,
+				Ubuntu,
+				Cantarell,
+				"Open Sans",
+				"Helvetica Neue",
+				sans-serif;
+		}
+
+		.background-gradient {
+			position: fixed;
+			inset: 0;
+			z-index: -1;
+			pointer-events: none;
+
+			background: linear-gradient(180deg,
+					rgba(1, 1, 1, 1) 0%,
+					rgba(1, 1, 1, 1) 75%,
+					rgba(30, 0, 30, 1) 100%);
+
+			opacity: 0;
+			animation: gradual-gradient 2s ease-out forwards;
+		}
+
+		.reveal {
+			opacity: 0;
+			transform: translateY(-20px);
+			transition: all 0.6s ease-out;
+		}
+
+		.reveal.visible {
+			opacity: 1;
+			transform: translateY(0px);
+		}
+
+		.section-wrapper {
+			width: 75%;
+			height: 100vh;
+			display: flex;
+			align-items: center;
+			margin: 0 auto;
+		}
+
+		.header-avatar {
+			opacity: 0;
+			width: 50%;
+		}
+
+		.header-avatar h1 {
+			font-size: 5rem;
+			font-weight: 500;
+			text-align: center;
+			margin: 0;
+		}
+
+		.header-avatar h2 {
+			font-size: 2rem;
+			font-weight: 400;
+			text-align: center;
+			margin: 0;
+		}
+
+		.header-avatar .profile-img {
+			display: block;
+			border-radius: 50%;
+			width: 75%;
+			aspect-ratio: 1 / 1;
+			margin: 0 auto;
+		}
+
+		.links-row {
+			display: flex;
+			justify-content: center;
+			margin: 1rem;
+		}
+
+		.links-row a {
+			display: inline-block;
+			opacity: 0;
+			transform: translateX(-40px);
+			animation: slide-in-from-west 0.6s ease-out forwards;
+		}
+
+		.links-row a img {
+			width: 2rem;
+			height: 2rem;
+			margin: 0.5rem;
+			transition: opacity 0.2s ease-out;
+		}
+
+		.links-row a:hover img {
+			opacity: 0.6;
+		}
+
+		.links-row a:nth-child(1) {
+			animation-delay: 2s;
+		}
+
+		.links-row a:nth-child(2) {
+			animation-delay: 1.75s;
+		}
+
+		.links-row a:nth-child(3) {
+			animation-delay: 1.5s;
+		}
+
+		.header-bio {
+			opacity: 0;
+			width: 50%;
+		}
+
+		.header-bio p {
+			display: block;
+			margin: 1rem auto;
+			font-size: 2rem;
+			font-weight: 400;
+		}
+
+		.anim-slide-in-from-north {
+			animation: slide-in-from-north 0.6s ease-out forwards;
+		}
+
+		@keyframes slide-in-from-north {
+			from {
+				opacity: 0;
+				transform: translateY(-20px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes slide-in-from-west {
+			to {
+				opacity: 1;
+				transform: translateX(0);
+			}
+		}
+
+		.anim-500ms-delay {
+			animation-delay: 500ms;
+		}
+
+		.anim-1s-delay {
+			animation-delay: 1s;
+		}
+
+		.transition-500ms-delay {
+			transition-delay: 500ms;
+		}
+
+		.transition-1s-delay {
+			transition-delay: 1s;
+		}
+
+		@keyframes gradual-gradient {
+			to {
+				opacity: 1;
+			}
+		}
+
+		.project-bio {
+			width: 50%;
+		}
+
+		.project-bio h1 {
+			font-size: 5rem;
+			font-weight: 500;
+			text-align: center;
+			margin: 0;
+		}
+
+		.project-bio h2 {
+			font-size: 2rem;
+			font-weight: 400;
+			text-align: center;
+			margin: 0;
+		}
+
+		.project-bio p {
+			display: block;
+			margin: 1rem auto;
+			padding: 0rem 1rem;
+			font-size: 1.5rem;
+			font-weight: 400;
+			text-align: center;
+		}
+
+		.project-media {
+			width: 50%;
+		}
+
+		.project-media img {
+			display: block;
+			max-width: 75%;
+			max-height: 90vh;
+			margin: 0 auto;
+		}
+
+		.project-media iframe,
+		.project-media video {
+			display: block;
+			width: 100%;
+			aspect-ratio: 16 / 9;
+			margin: 0 auto;
+		}
+
+		.image-highlight {
+			border-radius: 12px;
+			box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+		}
+
+		@media (max-width: 768px) {
+			.section-wrapper {
+				flex-direction: column;
+				height: auto;
+				padding: 2rem 0;
+			}
+
+			.project-bio,
+			.project-media,
+			.header-avatar,
+			.header-bio {
+				width: 95%;
+				margin: 1rem auto;
+			}
+
+			.header-avatar h1,
+			.project-bio h1 {
+				font-size: 3rem;
+			}
+
+			.header-avatar h2,
+			.project-bio h2 {
+				font-size: 1.5rem;
+			}
+
+			.header-bio p,
+			.project-bio p {
+				font-size: 1.5rem;
+				padding: 0;
+			}
+
+		}
+	</style>
+</head>
+
+<body>
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			const observer = new IntersectionObserver(
+				(entries, obs) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add("visible");
+							obs.unobserve(entry.target);
+						}
+					});
+				},
+				{ threshold: 0.1 }
+			);
+
+			document.querySelectorAll(".reveal").forEach((el) => {
+				observer.observe(el);
+			});
+		});
+	</script>
+	<div class="background-gradient"></div>
+	<div class="section-wrapper">
+		<div class="header-avatar anim-slide-in-from-north anim-500ms-delay">
+			<img src="assets/profile.webp" class="profile-img" fetchpriority="high"
+				alt="Profile Picture of Noah Cagle" />
+			<h1>Noah Cagle</h1>
+			<h2>Full Stack Developer</h2>
+			<h2>Nashville, TN</h2>
+			<div class="links-row">
+				<a href="https://www.linkedin.com/in/noah-cagle-6814b6218/" target="_blank" rel="noopener noreferrer"
+					aria-label="LinkedIn">
+					<img class="anim-2s-delay" src="assets/logos/linkedin.svg" />
+				</a>
+				<a href="https://github.com/NoahCagle" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+					<img class="anim-2250ms-delay" src="assets/logos/github.svg" />
+				</a>
+				<a href="https://www.youtube.com/@noah-cagle" target="_blank" rel="noopener noreferrer"
+					aria-label="YouTube">
+					<img class="anim-2500ms-delay" src="assets/logos/youtube.svg" />
+				</a>
+			</div>
+		</div>
+		<div class="header-bio anim-slide-in-from-north anim-1s-delay">
+			<p>
+				My ultimate goal is to improve the world through
+				technological innovations. In my opinion, nothing feels
+				better than solving a tough problem in a creative way.
+			</p>
+
+			<p>
+				Originally from Indianapolis, Indiana, I have spent the last
+				15 years building a vast suite of software solutions. Below,
+				you can find some of my proudest works.
+			</p>
+		</div>
+	</div>
+	<div class="section-wrapper">
+		<div class="project-bio reveal transition-delay-500ms">
+			<h1>DecaFit</h1>
+			<h2>The Ultimate Fitness Tracker</h2>
+			<p>
+				Sometimes, you just gotta do it yourself! I built this app
+				after becoming frustrated with the rigid nature of existing
+				fitness trackers. I needed something that could be flexible,
+				without compromising on simplicity.
+			</p>
+			<p>
+				Using Expo/React Native on the frontend, and Supabase for
+				the backend, this app was the perfect opportunity to
+				strengthen my design skills and practice professional
+				patterns. I also took this opportunity to develop a
+				GDPR-compliant consent management system using Google's
+				AdMob SDK.
+			</p>
+
+		</div>
+		<div class="project-media reveal transition-delay-1s">
+			<img src="assets/projects/decafit/preview.webp" fetchpriority="high"
+				alt="Image of DecaFit's dashboard page" />
+		</div>
+	</div>
+	<div class="section-wrapper">
+		<div class="project-media reveal transition-delay-500ms">
+			<iframe src="https://www.youtube.com/embed/DSAnn5BOIBA" title="YouTube video player" frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		</div>
+		<div class="project-bio reveal transition-delay-1s">
+			<h1>MCDB</h1>
+			<h2>It's not a Minecraft server</h2>
+			<h2><b>It's a web server</b></h2>
+			<p>
+				Although this project is a bit silly, more than 90 thousand
+				YouTube viewers seemed to appreciate it!
+			</p>
+			<p>
+				At its core, MCDB is a database and storage bucket built
+				with only the Java standard library. As a bonus, all data is
+				stored as hexadecimal bytes, encoded using Minecraft wool
+				blocks.
+			</p>
+		</div>
+	</div>
+	<div class="section-wrapper">
+		<div class="project-bio reveal transition-delay-500ms">
+			<h1>Frequent Engine</h1>
+			<h2>The audio player nobody asked for</h2>
+			<p>
+				I built this project for the 2026 HackMT hackathon at Middle
+				Tennessee State University. This was one of the most
+				technical projects I've ever done.
+			</p>
+			<p>
+				The frequent engine employs the Cooley-Tukey Fast Fourier
+				Transform to replicate numerous small windows of a soundwave
+				using Minecraft noteblock sounds. Additionally, once the
+				algorithm has been applied, the results are encoded to a
+				custom little-endian file format.
+			</p>
+			<p>Like MCDB, this project was also written in Java.</p>
+		</div>
+		<div class="project-media reveal transition-delay-1s">
+			<video src="assets/projects/frequent-engine/frequent-engine-demo.mp4" controls>
+				Your browser doesn't support the HTML video tag!</video>
+		</div>
+	</div>
+	<div class="section-wrapper">
+		<div class="project-media reveal transition-delay-500ms">
+			<img class="image-highlight" src="assets/projects/aliens-site/preview.webp" fetchpriority="high"
+				alt="An image of an article from the Aliens of Club Penguin website" />
+		</div>
+		<div class="project-bio reveal transition-delay-1s">
+			<h1>Aliens Website</h1>
+			<h2>The friendliest army!</h2>
+			<p>
+				The Aliens of Club Penguin is an organization that remembers
+				Disney's original Club Penguin game with nostalgia. As a
+				member of the Aliens's leadership, I took it upon myself to
+				develop a website for our content.
+			</p>
+			<p>
+				This website leverages the power of server-side rendering
+				with Astro to maximize SEO. For a content-heavy site like
+				this, SEO is top priority. For client-side components, I
+				made use of the React framework.
+			</p>
+			<p>
+				On the backend, the Aliens's website uses a self-hosted
+				Supabase instance on a headless Debian VPS. An NGINX
+				reverse-proxy is placed in front of this instance to ensure
+				SSL is enforced.
+			</p>
+		</div>
+	</div>
+</body>
+
+</html>
